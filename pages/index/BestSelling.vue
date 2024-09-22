@@ -22,10 +22,10 @@ import ProductCard from '~/components/global/ProductCard.vue';
 import PrimaryButton from '~/components/global/PrimaryButton.vue';
 
 // Import images from the assets folder
-import hoodie from "@/assets/images/global/cards/hoodie.png";
-import bag from "@/assets/images/global/cards/bag.png";
-import liquidCooler from "@/assets/images/global/cards/liquid-cooler.png";
-import smallShelf from "@/assets/images/global/cards/small-bookshelf.png";
+import hoodie from "@/assets/images/global/cards/BestSelling/hoodie.png";
+import bag from "@/assets/images/global/cards/BestSelling/bag.png";
+import liquidCooler from "@/assets/images/global/cards/BestSelling/liquid-cooler.png";
+import smallShelf from "@/assets/images/global/cards/BestSelling/small-bookshelf.png";
 
 export default {
     components: {

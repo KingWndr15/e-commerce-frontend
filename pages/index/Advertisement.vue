@@ -1,77 +1,25 @@
 <template>
-    <main class="flex flex-column mt-10">
+    <main class="flex mt-10 justify-between">
         <div class="left flex flex-column gap-2 ">
             <p class="font-size-16 green weight-6">Categories</p>
             <h2 class="font-size-36 white">Enhance Your <br> Music Experience</h2>
+            <Countdown />
+            <button class="buy-now">Buy Now!</button>
         </div>
-        <div class="categories-grid mt-6">
-            <div class="category-item" v-for="(item, index) in categories" :key="index"
-                :class="{ active: item.active }">
-                <div class="icon">{{ item.icon }}</div>
-                <div class="label">{{ item.label }}</div>
-            </div>
+        <div class="image-container">
+            <img src="@/assets/images/advertisment/speaker.png" alt="Speaker" />
         </div>
     </main>
 </template>
 
 <script>
-import sectionHeader from '~/components/global/section-header.vue';
-import PrimaryButton from '~/components/global/PrimaryButton.vue';
-
-// Import images from the assets folder
-import gamepad from "@/assets/images/global/cards/gamepad.png";
-import keyboard from "@/assets/images/global/cards/keyboard.png";
-import monitor from "@/assets/images/global/cards/monitor.png";
-import chair from "@/assets/images/global/cards/chair.png";
+import Countdown from '@/components/advertisment/AdvertisementCountdown.vue';
 
 export default {
-    components: {
-        sectionHeader,
-        PrimaryButton,
-    },
-    data() {
-        return {
-            products: [
-                {
-                    name: 'HAVIT HV-G92 Gamepad',
-                    image: gamepad,
-                    originalPrice: 160,
-                    currentPrice: 120,
-                    reviews: 88,
-                },
-                {
-                    name: 'AK-900 Wired Keyboard',
-                    image: keyboard,
-                    originalPrice: 1160,
-                    currentPrice: 960,
-                    reviews: 75,
-                },
-                {
-                    name: 'IPS LCD Gaming Monitor',
-                    image: monitor,
-                    originalPrice: 400,
-                    currentPrice: 370,
-                    reviews: 99,
-                },
-                {
-                    name: 'S-Series Comfort Chair',
-                    image: chair,
-                    originalPrice: 500,
-                    currentPrice: 375,
-                    reviews: 89,
-                },
-            ],
-            categories: [
-                { icon: "📱", label: "Phones", active: false },
-                { icon: "💻", label: "Computers", active: false },
-                { icon: "⌚", label: "SmartWatch", active: false },
-                { icon: "📷", label: "Camera", active: true }, // Mark this as active
-                { icon: "🎧", label: "HeadPhones", active: false },
-                { icon: "🎮", label: "Gaming", active: false },
-            ]
-        };
-    },
-}
+  components: {
+    Countdown,
+  },
+};
 </script>
 
 
@@ -88,65 +36,40 @@ main {
     justify-content: space-between;
 }
 
-.heading {
-    display: flex;
-    gap: 100px;
+.buy-now {
+  background-color: var(--ascent);
+  color: #fff;
+  padding: 16px 48px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: fit-content; /* Ensure the button takes up only as much space as needed */
 }
 
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-
-    @media (width < 1200px) {
-        grid-template-columns: repeat(4, 1fr);
-        /* 4 columns on slightly smaller screens */
-    }
-
-    @media (width < 900px) {
-        grid-template-columns: repeat(3, 1fr);
-        /* 3 columns on tablets and smaller laplefts */
-    }
-
-    @media (width < 600px) {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns on large phones */
-    }
-
-    @media (width < 400px) {
-        grid-template-columns: repeat(1, 1fr);
-        /* 1 column on small mobile devices */
-    }
+.image-container {
+  max-width: 50%;
+  position: relative; /* Required for the shadow effect */
 }
 
-.category-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #e0e0e0;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.image-container::after {
+  content: '';
+  position: absolute;
+  top: 0px; /* Adjust this value to control the shadow's offset */
+  left: 0px; /* Adjust this value to control the shadow's offset */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.539); /* The shadow color */
+  filter: blur(150px); /* Adjust the blur value for the desired shadow softness */
+  /* z-index: -1; */
+  border-radius: 20px; /* Adjust if you want rounded shadow edges */
 }
 
-.category-item.active {
-    background-color: #e74c3c;
-    /* Red background for the active state */
-    color: white;
-}
-
-.category-item .icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.category-item .label {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.category-item:hover {
-    background-color: #f5f5f5;
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  position: relative; /* Ensures the image remains in front of the shadow */
+    z-index: 1;
 }
 </style>

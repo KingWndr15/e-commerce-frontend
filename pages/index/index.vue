@@ -5,6 +5,7 @@
     <Categories />
     <BestSelling />
     <Advertisement />
+    <OurProducts />
   </NuxtLayout>
 </template>
 
@@ -14,6 +15,7 @@ import Today from './Today.vue';
 import Categories from './Categories.vue';
 import BestSelling from './BestSelling.vue';
 import Advertisement from './Advertisement.vue';
+import OurProducts from './OurProducts.vue';
 
 export default {
   components: {
@@ -22,6 +24,7 @@ export default {
     Categories,
     BestSelling,
     Advertisement,
+    OurProducts,
   }
 }
 </script>

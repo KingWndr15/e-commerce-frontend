@@ -25,10 +25,10 @@ import sectionHeader from '~/components/global/section-header.vue';
 import PrimaryButton from '~/components/global/PrimaryButton.vue';
 
 // Import images from the assets folder
-import gamepad from "@/assets/images/global/cards/gamepad.png";
-import keyboard from "@/assets/images/global/cards/keyboard.png";
-import monitor from "@/assets/images/global/cards/monitor.png";
-import chair from "@/assets/images/global/cards/chair.png";
+import gamepad from "@/assets/images/global/cards/Today/gamepad.png";
+import keyboard from "@/assets/images/global/cards/Today/keyboard.png";
+import monitor from "@/assets/images/global/cards/Today/monitor.png";
+import chair from "@/assets/images/global/cards/Today/chair.png";
 
 export default {
     components: {
