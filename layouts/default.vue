@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-6" >
+  <div>
     <div class="banner">
       <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
       <a href="" class="ml-1">ShopNow</a>
@@ -30,8 +30,23 @@
     </main>
     <hr>
     <slot />
+    <BackToTop />
+    <AppFooter class="mt-10" />
   </div>
 </template>
+
+
+<script>
+import AppFooter from "~/components/global/Footer.vue"
+import BackToTop from '~/components/global/BackToTop.vue';
+
+export default {
+  components: {
+    AppFooter,
+    BackToTop
+  }
+}
+</script>
 
 <style scoped>
 .banner {
@@ -75,7 +90,7 @@ nav .left .links {
 }
 
 nav .left .links a:hover {
-  border-bottom: 1px solid 808080;
+  border-bottom: 1px solid #808080;
 }
 
 nav .right {

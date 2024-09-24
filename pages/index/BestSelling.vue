@@ -93,6 +93,5 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     place-items: start;
     gap: 30px;
-    padding: 20px;
 }
 </style>

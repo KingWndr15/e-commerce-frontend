@@ -1,17 +1,14 @@
-    <template>
+<template>
     <main class="flex flex-column mt-10 pb-6">
         <div class="top items-end">
             <div class="flex flex-column gap-2 content-between">
                 <sectionHeader>
-                    Our Products
+                    Featured
                 </sectionHeader>
-                <h2 class="font-size-36" >Explore Our Products</h2>
+                <h2 class="font-size-36" >New Arrival</h2>
             </div>
         </div>
-        <div class="product-grid mt-2">
-            <ProductCard v-for="(product, index) in products" :key="index" :product="product" />
-        </div>
-        <PrimaryButton label="View All Products" color="primary" size="large" class="self-center mt-6"  @click="handleButtonClick" />
+        <ProductGrid class="mt-6" />
     </main>
 </template>
 
@@ -116,12 +113,5 @@ main {
 .heading {
     display: flex;
     gap: 100px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    place-items: start;
-    gap: 30px;
 }
 </style>
