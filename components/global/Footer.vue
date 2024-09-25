@@ -3,8 +3,8 @@
         <main class="footer-container">
             <!-- Exclusive Section -->
             <div class="footer-section">
-                <h3 class="font-size-24 weight-7" >Exclusive</h3>
-                <h4 class="font-size-20 weight-5 mt-2" >Subscribe</h4>
+                <h3 class="font-size-24 weight-7">Exclusive</h3>
+                <h4 class="font-size-20 weight-5 mt-2">Subscribe</h4>
                 <p>Get 10% off your first order</p>
                 <div class="subscribe-form">
                     <input type="email" placeholder="Enter your email" />
@@ -19,7 +19,7 @@
                 <h3>Support</h3>
                 <p>
                     111 Bijoy sarani, Dhaka,<br />
-                    DH 1515, Bangladesh.
+                    DH 1515, Nigeria.
                 </p>
                 <p>exclusive@gmail.com</p>
                 <p>+88015-88888-9999</p>
@@ -53,17 +53,17 @@
                 <h3>Download App</h3>
                 <p>Save $3 with App New User Only</p>
                 <div class="download-icons">
-                    <img src="@/assets/images/global/footer/qrcode.png" alt="QR Code" />
+                    <img class="qrcode" src="@/assets/images/global/footer/qrcode.png" alt="QR Code" />
                     <div>
                         <img src="@/assets/images/global/footer/playstore.png" alt="Google Play" />
                         <img src="@/assets/images/global/footer/appstore.png" alt="App Store" />
                     </div>
                 </div>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><img src="@/assets/icons/global/footer/faceboook.svg"/></a>
+                    <a href="#"><img src="@/assets/icons/global/footer/twitter.svg"/></a>
+                    <a href="#"><img src="@/assets/icons/global/footer/instagram.svg"/></a>
+                    <a href="#"><img src="@/assets/icons/global/footer/linkein.svg"/></a>
                 </div>
             </div>
         </main>
@@ -153,14 +153,19 @@ export default {
     margin-top: 10px;
 }
 
+.download-icons .qrcode {
+    height: 70px;
+}
+
 .download-icons img {
-    width: 80px;
     height: auto;
 }
 
 .social-icons {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    width: 70%;
+    /* gap: 10px; */
     margin-top: 10px;
 }
 
@@ -173,12 +178,12 @@ export default {
 .footer-bottom {
     text-align: center;
     padding: 10px;
-    border-top: 1px solid #212121;
+    border-top: 1px solid #646464;
     margin-top: 20px;
 }
 
 .footer-bottom p {
-    color: #212121;
+    color: #646464;
 }
 
 @media (max-width: 768px) {
