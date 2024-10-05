@@ -5,14 +5,10 @@
                 <img class="left-image" src="@/assets/images/signup/side-image.png" alt="" draggable="false">
                 <form submit.prevent="">
                     <div class="top">
-                        <h2>Create an account</h2>
+                        <h2>Log in to Exclusive</h2>
                         <p>Enter your details below</p>
                     </div>
                     <div class="input-section mt-3">
-                        <div class="input-field">
-                            <label for="name">Name</label>
-                            <input type="text" id="name">
-                        </div>
                         <div class="input-field">
                             <label for="email">Email</label>
                             <input type="email" id="email">
@@ -23,13 +19,14 @@
                         </div>
                     </div>
                     <div class="cta mt-3">
-                        <button>Create Account</button>
+                        <button>Log In</button>
                         <button>
                             <img src="@/assets/icons/auth/google-icon.svg" alt="">
-                            Sign up with Google
+                            Log in with Google
                         </button>
                     </div>
-                    <p class="login mt-2">Already have account? <a href="/auth/login">Log in</a></p>
+                    <a href="" class="mt-1 text-center" >Forget Password?</a>
+                    <p class="login mt-2">Already have account? <a href=""class="link" >Log in</a></p>
                 </form>
             </div>
         </main>
@@ -177,13 +174,16 @@ form .login {
     color: #4d4d4d;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 6px;
     align-self: center;
 }
 
-form .login .link {
+form .link {
     font-weight: 500;
     text-decoration: underline;
+}
 
+form a:hover {
+    text-decoration: none !important;
 }
 </style>

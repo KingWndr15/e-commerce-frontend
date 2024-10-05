@@ -1,25 +1,38 @@
-    <template>
+<template>
     <main class="flex flex-column mt-10 pb-6">
         <div class="top items-end">
             <div class="flex flex-column gap-2 content-between">
-                <sectionHeader>
-                    Our Products
-                </sectionHeader>
-                <h2 class="font-size-36" >Explore Our Products</h2>
+                <p class="font-size-20">Wishlist (4)</p>
             </div>
         </div>
-        <div class="product-grid mt-2">
+        <div class="product-grid mt-5">
+            <WishListCard v-for="(product, index) in products" :key="index" :product="product" />
+        </div>
+        <PrimaryButton label="Move All To Bag" color="secondary" size="large" class="self-center mt-4"
+            @click="handleButtonClick" />
+    </main>
+
+    <main class="flex flex-column">
+        <div class="top">
+            <div class="flex items-center ">
+                <sectionHeader>
+                </sectionHeader>
+                <h2 class="font-size-20 weight-4">Just For You</h2>
+            </div>
+        </div>
+        
+        <div class="product-grid mt-5">
             <ProductCard v-for="(product, index) in products" :key="index" :product="product" />
         </div>
-        <PrimaryButton label="View All Products" color="primary" size="large" class="self-center mt-4"  @click="handleButtonClick" />
+        <PrimaryButton label="See All" color="secondary" size="large" class="self-center mt-4"
+        @click="handleButtonClick" />
     </main>
 </template>
 
 <script>
 import sectionHeader from '~/components/global/section-header.vue';
-import CountdownTimer from '~/components/global/CountdownTimer.vue';
-import ProductCard from '~/components/global/ProductCard.vue';
 import PrimaryButton from '~/components/global/PrimaryButton.vue';
+import WishListCard from '~/components/global/WishListCard.vue';
 
 // Import images from the assets folder
 import dogfood from "@/assets/images/global/cards/OurProducts/dog-food.png";
@@ -31,12 +44,12 @@ import cleats from "@/assets/images/global/cards/OurProducts/cleats.png";
 import gamepad from "@/assets/images/global/cards/OurProducts/gamepad.png";
 import jacket from "@/assets/images/global/cards/OurProducts/jacket.png";
 
+
 export default {
     components: {
         sectionHeader,
-        CountdownTimer,
-        ProductCard,
         PrimaryButton,
+        WishListCard,
     },
     data() {
         return {
@@ -65,36 +78,6 @@ export default {
                     currentPrice: 145,
                     reviews: 145,
                 },
-                {
-                    name: 'Kids Electric Car',
-                    image: kidsracecar,
-                    currentPrice: 960,
-                    reviews: 65,
-                    isNew: true,
-                    colors: ["#FB1314","#DB4444"]
-                },
-                {
-                    name: 'Jr. Zoom Soccer Cleats',
-                    image: cleats,
-                    currentPrice: 1160,
-                    reviews: 35,
-                    colors: ["#EEFF61","#DB4444"]
-                },
-                {
-                    name: 'GP11 Shooter USB Gamepad',
-                    image: gamepad,
-                    currentPrice: 660,
-                    reviews: 55,
-                    isNew: true,
-                    colors: ["#000","#DB4444"]
-                },
-                {
-                    name: 'Quilted Satin Jacket',
-                    image: jacket,
-                    currentPrice: 660,
-                    reviews: 55,  
-                    colors: ["#184A48","#DB4444"]
-                },
             ],
         };
     },
@@ -110,17 +93,84 @@ main {
 .top {
     display: flex;
     align-self: stretch;
+    align-items: center;
     justify-content: space-between;
+
+    @media (width < 800px) {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
 }
 
 .top h2 {
-    font-size: 30px;
+    font-size: 20px;
+    height: fit-content;
 }
 
 .heading {
     display: flex;
     gap: 100px;
 }
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+
+    @media (width < 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns on slightly smaller screens */
+    }
+
+    @media (width < 900px) {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns on tablets and smaller laptops */
+    }
+
+    @media (width < 600px) {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on large phones */
+    }
+
+    @media (width < 400px) {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 column on small mobile devices */
+    }
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-item.active {
+    background-color: #e74c3c;
+    /* Red background for the active state */
+    color: white;
+}
+
+.category-item .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.category-item .label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.category-item:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
 
 .product-grid {
     display: grid;
@@ -129,7 +179,7 @@ main {
     gap: 30px;
 
     @media (width < 950px) {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));        
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 </style>

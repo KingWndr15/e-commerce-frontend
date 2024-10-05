@@ -1,49 +1,62 @@
-<template>
-  <div>
-    <div class="banner">
-      <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
-      <a href="" class="ml-1">ShopNow</a>
-    </div>
-    <main class="mt-4 mb-2">
-      <nav class="mt-1">
-        <div class="left">
-          <h2 class="font-size-28 weight-7">Exclusive</h2>
-          <div class="links">
-            <a href="">Home</a>
-            <a href="">Contact</a>
-            <a href="">About</a>
-            <a href="">Sign Up</a>
-          </div>
-        </div>
+  <template>
+    <div>
+      <div class="banner">
+        <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+        <a href="" class="ml-1">ShopNow</a>
+      </div>
+      <main class="mt-4 mb-2">
+        <nav class="mt-1">
+          <div class="left">
+            <img src="@/assets/icons/global/navbar/hamburger.svg" alt="" height="20px">
+            <a href="/"><h2 class="font-size-28 weight-7">Exclusive</h2></a>
+            <div class="links">
+              <a href="">Home</a>
+              <a href="">Contact</a>
+              <a href="">About</a>
+              <a href="/auth" v-if="!authorised">Sign Up</a>
+            </div>
 
-        <div class="right">
-          <div class="search">
-            <input type="text" placeholder="What are you looking for?">
-            <img src="@/assets/icons/global/search.svg" alt="">
+            <!-- mobile cta -->
+            <div class="cta">
+              <a href="/wishlist"><img src="@/assets/icons/global/heart.svg" alt=""></a>
+              <a href="/cart"><img src="@/assets/icons/global/cart.svg" alt=""></a>
+              <a href="" v-if="authorised"><img src="@/assets/icons/global/navbar/user.svg" alt=""></a>
+            </div>
           </div>
-          <div class="cta">
-            <a href=""><img src="@/assets/icons/global/heart.svg" alt=""></a>
-            <a href=""><img src="@/assets/icons/global/cart.svg" alt=""></a>
+
+          <div class="right">
+            <div class="search">
+              <input type="text" placeholder="What are you looking for?">
+              <img src="@/assets/icons/global/search.svg" alt="">
+            </div>
+
+            <!-- Desktop cta -->
+            <div class="cta">
+              <a href="/wishlist"><img src="@/assets/icons/global/heart.svg" alt=""></a>
+              <a href="/cart"><img src="@/assets/icons/global/cart.svg" alt=""></a>
+              <a href="" v-if="authorised" ><img src="@/assets/icons/global/navbar/user.svg" alt=""></a>
+            </div>
           </div>
-        </div>
-      </nav>
-    </main>
-    <hr>
-    <slot />
-    <BackToTop />
-    <AppFooter class="mt-10" />
-  </div>
-</template>
+        </nav>
+      </main>
+      <hr>
+      <slot />
+      <AppFooter class="mt-5" />
+    </div>
+  </template>
 
 
 <script>
 import AppFooter from "~/components/global/Footer.vue"
-import BackToTop from '~/components/global/BackToTop.vue';
 
 export default {
+  data() {
+    return {
+      authorised: false
+    }
+  },
   components: {
     AppFooter,
-    BackToTop
   }
 }
 </script>
@@ -76,17 +89,45 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  @media (width < 950px) {}
 }
 
 nav .left {
   display: flex;
   gap: 100px;
+
+  @media (width < 1200px) {
+    gap: 40px;
+  }
+
+  @media (width < 950px) {
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+nav .left img {
+  height: fit-content;
+  width: fit-content;
+
+  @media (width > 950px) {
+    display: none;
+  }
+}
+
+nav .left h2 {
+  width: fit-content;
 }
 
 nav .left .links {
   display: flex;
   align-items: center;
   gap: 30px;
+
+  @media (width < 1000px) {
+    display: none;
+  }
 }
 
 nav .left .links a:hover {
@@ -97,6 +138,10 @@ nav .right {
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media (width < 950px) {
+    gap: 10px;
+  }
 }
 
 nav .right .search {
@@ -113,19 +158,27 @@ nav .right .search input {
   background-color: transparent;
   border: none;
   outline: none;
+
+  @media (width < 800px) {
+    display: none;
+  }
 }
 
 nav .right .search input::placeholder {
   color: 7a7a7a;
 }
 
-nav .right .cta {
+nav .cta {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-nav .right .cta a {
+nav .left .cta {
+  display: none;
+}
+
+nav .cta a {
   display: flex;
   align-items: center;
 }

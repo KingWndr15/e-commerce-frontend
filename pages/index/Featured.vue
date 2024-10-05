@@ -110,6 +110,10 @@ main {
     justify-content: space-between;
 }
 
+.top h2 {
+    font-size: 30px;
+}
+
 .heading {
     display: flex;
     gap: 100px;

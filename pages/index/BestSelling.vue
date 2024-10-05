@@ -7,11 +7,11 @@
                 </sectionHeader>
                 <h2 class="font-size-36" >Best Selling Products</h2>
             </div>
-            <PrimaryButton label="View All" color="primary" size="large" class="self-center mt-6"  @click="handleButtonClick" />
         </div>
         <div class="product-grid mt-2">
             <ProductCard v-for="(product, index) in products" :key="index" :product="product" />
         </div>
+        <PrimaryButton label="View All" color="primary" size="large" class="self-center mt-4"  @click="handleButtonClick" />
     </main>
 </template>
 
@@ -83,6 +83,10 @@ main {
     justify-content: space-between;
 }
 
+.top h2 {
+    font-size: 30px;
+}
+
 .heading {
     display: flex;
     gap: 100px;
@@ -93,5 +97,9 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     place-items: start;
     gap: 30px;
+
+    @media (width < 950px) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));        
+    }
 }
 </style>

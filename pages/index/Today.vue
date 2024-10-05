@@ -83,6 +83,16 @@ main {
     display: flex;
     align-self: stretch;
     justify-content: space-between;
+
+    @media (width < 800px) {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+}
+
+.top h2 {
+    font-size: 30px;
 }
 
 .heading {
@@ -95,5 +105,9 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     place-items: start;
     gap: 30px;
+
+    @media (width < 950px) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));        
+    }
 }
 </style>

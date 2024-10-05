@@ -56,6 +56,10 @@ export default {
     display: flex;
     gap: 15px;
     margin-top: 20px;
+
+    @media (width < 800px) {
+        gap: 10px;
+    }
 }
 
 .countdown-item {
@@ -67,6 +71,11 @@ export default {
     width: 62px;
     height: 62px;
     border-radius: 80%;
+
+    @media (width < 800px) {
+        width: 52px;
+        height: 52px;
+    }
 }
 
 .time {

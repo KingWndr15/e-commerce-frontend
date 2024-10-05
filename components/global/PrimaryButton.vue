@@ -104,8 +104,9 @@ function handleClick(event) {
 }
 
 .nuxt-button--secondary {
-    background-color: #6c757d;
-    color: white;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #808080;
 }
 
 .nuxt-button--danger {

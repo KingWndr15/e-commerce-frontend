@@ -77,11 +77,19 @@ export default {
 .time-value {
     font-size: 2rem;
     font-weight: bold;
+
+    @media (width < 800px) {
+        font-size: 1.5rem;        
+    }
 }
 
 .time-label {
     font-size: 0.75rem;
     text-transform: uppercase;
+
+    @media (width < 800px) {
+        font-size: 0.65rem;        
+    }
 }
 
 .separator {

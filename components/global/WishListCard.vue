@@ -8,8 +8,7 @@
         <div class="image-wrapper">
             <img :src="product.image" :alt="product.name" class="product-image" />
             <div class="icon-wrapper">
-                <span class="icon"><img src="@/assets/icons/global/heart.svg" alt="" height="14px"></span>
-                <span class="icon"><img src="@/assets/icons/global/cart.svg" alt="" height="18px"></span>
+                <span class="icon"><img src="@/assets/icons/global/cards/bin.svg" alt="" height="18px"></span>
             </div>
             <div class="add-to-cart gap-1">
                 <img src="@/assets/icons/global/cards/eye.svg" alt="">

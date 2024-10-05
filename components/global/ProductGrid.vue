@@ -36,6 +36,10 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 280px;
   gap: 1rem;
+
+  @media (width < 950px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-item {
@@ -72,6 +76,10 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+
+  @media (width < 950px) {
+    grid-column: span 2;
+  }
 }
 
 .womens-collections {
@@ -81,6 +89,9 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  @media (width < 950px) {
+    grid-column: span 2;
+  }
 }
 
 
@@ -90,6 +101,9 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  @media (width < 950px) {
+    grid-column: span 2;
+  }
 }
 
 .perfume {
@@ -98,6 +112,9 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  @media (width < 950px) {
+    grid-column: span 2;
+  }
 }
 
 h2 {

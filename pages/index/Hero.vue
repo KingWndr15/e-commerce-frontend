@@ -8,18 +8,19 @@
                 <a href="#">Home & Lifestyle</a>
                 <a href="#">Medicine</a>
                 <a href="#">Sports & Outdoor</a>
-                <a href="#">Baby’s & Toys</a>
-                <a href="#">Groceries & Pets</a>
-                <a href="#">Health & Beauty</a>
+                <a href="#" class="overflow">Baby’s & Toys</a>
+                <a href="#" class="overflow">Groceries & Pets</a>
+                <a href="#" class="overflow">Health & Beauty</a>
             </div>
         </div>
-        
+
         <div class="slider flex-column justify-between">
             <button @click="prevSlide" class="prev-slide">&lt;</button>
-            
+
             <!-- Slide Content Wrapper -->
             <div class="slide-wrapper flex justify-between flex-centered-y ">
-                <div v-for="(slide, index) in slides" :key="index" v-show="index === currentSlide" class="flex-column slide-content">
+                <div v-for="(slide, index) in slides" :key="index" v-show="index === currentSlide"
+                    class="flex-column slide-content">
                     <div class="ml-1 flex-centered-y">
                         <img :src="slide.logo" alt="Slide Logo">
                         <p class="white ml-2">{{ slide.title }}</p>
@@ -30,17 +31,14 @@
                         <img class="ml-1" src="@/assets/icons/global/slider/arrow.svg" alt="arrow">
                     </button>
                 </div>
-                <img :src="slides[currentSlide].image" alt="Slide Image" class="slide-image">
+                <img :src="slides[currentSlide].image" alt="Slide Image" class="slide-image" >
             </div>
 
             <button @click="nextSlide" class="next-slide">&gt;</button>
-            
+
             <!-- Indicators inside the slider div -->
             <div class="indicators">
-                <span 
-                    v-for="(slide, index) in slides" 
-                    :key="index" 
-                    :class="{'active': index === currentSlide}" 
+                <span v-for="(slide, index) in slides" :key="index" :class="{ 'active': index === currentSlide }"
                     @click="goToSlide(index)">
                 </span>
             </div>
@@ -65,7 +63,18 @@ export default {
                 {
                     logo: appleLogo,
                     title: "iPhone 14 Series",
-                    discount: "Up to 10% off Voucher",
+                    discount: "Up to 10% off Voucher",                // {
+                //     logo: samsungLogo,
+                //     title: "Samsung Galaxy S22",
+                //     discount: "Flat 15% off",
+                //     image: samsungHeroImage
+                // },
+                // {
+                //     logo: huaweiLogo,
+                //     title: "Huawei P50",
+                //     discount: "Save $200 now",
+                //     image: huaweiHeroImage
+                // }
                     image: heroImage
                 },
                 {
@@ -118,10 +127,19 @@ export default {
 main {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    gap: 60px;
+    gap: 40px;
     justify-content: space-between;
     position: relative;
     top: -1px;
+
+    @media (width < 1020px) {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    /* @media (width < 950px) {
+        display: none;
+    } */
 }
 
 .hero {
@@ -135,30 +153,82 @@ main {
     gap: 16px;
     padding: 40px 40px 0px 0px;
     border-right: 2px solid #9A9A9A;
+
+    @media (width < 1020px) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0px;
+        padding: 40px 0px 0px;
+        border: 0px;
+    }
+
+    @media (width < 950px) {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px 0px;
+    }   
 }
 
 .hero .categories a {
     display: flex;
     gap: 50px;
     width: 180px;
+
+    @media (width < 1020px) {
+        width: fit-content;
+        font-size: 14px;
+    }
+}
+
+.hero .categories .overflow {
+    display: none;
 }
 
 .slider {
     position: relative;
     width: 100%;
+    height: 60vh;
     background-color: #000;
     margin-top: 40px;
     padding: 47px 67px;
-    display: flex;
+    display: flex;  
+    justify-content: space-between;
+
+    @media (width < 1020px) {
+        height: 60vh;
+    }
+
+    @media (width < 950px) {
+        height: fit-content;
+        gap: 50px;
+        margin-top: 20px;
+        padding: 27px 30px;
+    }
+
+    @media (width < 800px) {
+        width: 100%;
+        max-height: fit-content;
+        height: 100%;
+    }
 }
 
 .slide-wrapper {
-    padding: 0px 20px; 
+    padding: 0px 20px;
+    @media (width < 950px) {
+        padding: 0px 50px;
+    }
+    @media (width < 800px) {
+        flex-direction: column-reverse;
+        padding: 0px 25px;
+    }
 }
 
 .slider button {
     background-color: transparent;
-    width: 110px;
+    width: fit-content;
     border: 0px;
     outline: 0px;
 }
@@ -172,18 +242,41 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (width < 950px) {
+        gap: 10px;
+    }
+
+    @media (width < 800px) {
+        align-self: flex-start;
+        gap: 0px
+    }
+}
+
+.slide-content h2 {
+    @media (width < 950px) {
+        font-size: 32px;
+    }
 }
 
 .prev-slide,
 .next-slide {
     position: absolute;
     top: 50%;
+    width: 100px !important;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
+    font-size: 30px;
+    font-weight: 800;
+
+    @media (width < 950px) {
+        transform: translateY(-50%);
+        width: 50px !important;
+    }
 }
 
 .prev-slide {
@@ -198,7 +291,8 @@ main {
 .indicators {
     display: flex;
     justify-content: center;
-    position: relative; /* Changed to relative */
+    position: relative;
+    /* Changed to relative */
     margin-top: 20px;
 }
 
@@ -219,6 +313,10 @@ main {
 }
 
 .slide-image {
-    max-height: 300px;
+    max-width: 300px;
+
+    @media (width < 950px) {
+        max-width: 200px;
+    }
 }
 </style>

@@ -4,24 +4,31 @@
             <div class="icon-container mb-1">
                 <img src="@/assets/icons/global/services/truck.svg" alt="Delivery Icon" />
             </div>
-            <h3>FREE AND FAST DELIVERY</h3>
-            <p>Free delivery for all orders over $140</p>
+            <div class="content">
+                <h3>FREE AND FAST DELIVERY</h3>
+                <p>Free delivery for all orders over $140</p>
+            </div>
         </div>
 
         <div class="feature">
             <div class="icon-container mb-1">
                 <img src="@/assets/icons/global/services/headset.svg" alt="Customer Service Icon" />
             </div>
-            <h3>24/7 CUSTOMER SERVICE</h3>
-            <p>Friendly 24/7 customer support</p>
+
+            <div class="content">
+                <h3>24/7 CUSTOMER SERVICE</h3>
+                <p>Friendly 24/7 customer support</p>
+            </div>
         </div>
 
         <div class="feature">
             <div class="icon-container mb-1">
                 <img src="@/assets/icons/global/services/guard.svg" alt="Money Back Icon" />
             </div>
-            <h3>MONEY BACK GUARANTEE</h3>
-            <p>We return money within 30 days</p>
+            <div class="content">
+                <h3>MONEY BACK GUARANTEE</h3>
+                <p>We return money within 30 days</p>
+            </div>
         </div>
     </main>
 </template>
@@ -37,16 +44,27 @@ export default {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0px;
     text-align: center;
+
+    @media (width < 800px) {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 0px;
+    }
 }
 
 .feature {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-radius: 10px;
+    gap: 10px;
     height: fit-content;
+}
+
+.feature .content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .icon-container {
@@ -61,6 +79,10 @@ export default {
 h3 {
     font-size: 20px;
     font-weight: bold;
+
+    @media (width < 1020px) {
+        font-size: 18px;        
+    }
 }
 
 p {

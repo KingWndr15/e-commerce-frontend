@@ -294,11 +294,6 @@
   display: grid;
   justify-content: end;
 }
-.left {
-  display: grid;
-  justify-content: start;
-}
-
 /* max width */
 .maxw-50 {
   max-width: 150px;
@@ -523,12 +518,6 @@
 }
 
 /*float*/
-
-.left {
-  float: left;
-  margin: 0;
-}
-
 .right {
   float: right;
 }
